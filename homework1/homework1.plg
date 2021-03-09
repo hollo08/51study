@@ -1,0 +1,324 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\51\study\homeword1\homework1.uvproj
+Project File Date:  02/25/2021
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(18): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(18): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C141: syntax error near 'for'
+HOMEWORK1.C(19): error C141: syntax error near 'int'
+HOMEWORK1.C(19): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C141: syntax error near ')'
+HOMEWORK1.C(24): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(7): error C141: syntax error near ';'
+HOMEWORK1.C(9): error C202: 'k': undefined identifier
+HOMEWORK1.C(10): error C202: 'k': undefined identifier
+HOMEWORK1.C(11): error C202: 'j': undefined identifier
+HOMEWORK1.C(18): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(18): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C141: syntax error near 'for'
+HOMEWORK1.C(19): error C141: syntax error near 'int'
+HOMEWORK1.C(19): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C141: syntax error near ')'
+HOMEWORK1.C(24): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(18): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(18): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C141: syntax error near 'for'
+HOMEWORK1.C(19): error C141: syntax error near 'int'
+HOMEWORK1.C(19): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C141: syntax error near ')'
+HOMEWORK1.C(24): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(19): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(19): error C202: 'i': undefined identifier
+HOMEWORK1.C(20): error C141: syntax error near 'for'
+HOMEWORK1.C(20): error C141: syntax error near 'int'
+HOMEWORK1.C(20): error C202: 'i': undefined identifier
+HOMEWORK1.C(20): error C202: 'i': undefined identifier
+HOMEWORK1.C(20): error C141: syntax error near ')'
+HOMEWORK1.C(25): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(18): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(18): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C141: syntax error near 'for'
+HOMEWORK1.C(19): error C141: syntax error near 'int'
+HOMEWORK1.C(19): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C202: 'i': undefined identifier
+HOMEWORK1.C(19): error C141: syntax error near ')'
+HOMEWORK1.C(24): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'i': undefined identifier
+HOMEWORK1.C(21): error C141: syntax error near 'for'
+HOMEWORK1.C(21): error C141: syntax error near 'int'
+HOMEWORK1.C(21): error C202: 'i': undefined identifier
+HOMEWORK1.C(21): error C202: 'i': undefined identifier
+HOMEWORK1.C(21): error C141: syntax error near ')'
+HOMEWORK1.C(26): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'i': undefined identifier
+HOMEWORK1.C(21): error C141: syntax error near 'int'
+HOMEWORK1.C(21): error C202: 'i': undefined identifier
+HOMEWORK1.C(21): error C202: 'i': undefined identifier
+HOMEWORK1.C(21): error C141: syntax error near ')'
+HOMEWORK1.C(26): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(21): error C141: syntax error near 'int'
+HOMEWORK1.C(21): error C141: syntax error near ')'
+HOMEWORK1.C(26): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(26): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): warning C280: 'j': unreferenced local variable
+linking...
+Program Size: data=12.0 xdata=0 code=85
+"homework1" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'i': undefined identifier
+HOMEWORK1.C(21): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'int'
+HOMEWORK1.C(20): error C202: 'i': undefined identifier
+HOMEWORK1.C(21): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(21): error C202: 'm': undefined identifier
+HOMEWORK1.C(23): error C202: 'm': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'int'
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(21): error C202: 'm': undefined identifier
+HOMEWORK1.C(23): error C202: 'm': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(21): error C202: 'm': undefined identifier
+HOMEWORK1.C(23): error C202: 'm': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(21): error C202: 'm': undefined identifier
+HOMEWORK1.C(23): error C202: 'm': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=10.0 xdata=0 code=87
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=88
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=88
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(20): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(20): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(20): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=88
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(20): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(20): error C202: 'm': undefined identifier
+HOMEWORK1.C(21): error C202: 'm': undefined identifier
+HOMEWORK1.C(23): error C202: 'm': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=88
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=88
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=88
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=102
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=102
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=109
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=109
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(49): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(49): error C202: 'temp': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+HOMEWORK1.C(48): error C141: syntax error near 'unsigned'
+HOMEWORK1.C(48): error C202: 'temp': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=109
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=9.0 xdata=0 code=112
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=124
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=139
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=132
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=171
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=189
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=114
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=114
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=105
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=105
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=106
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling homework1.c...
+linking...
+Program Size: data=11.0 xdata=0 code=297
+creating hex file from "homework1"...
+"homework1" - 0 Error(s), 0 Warning(s).
