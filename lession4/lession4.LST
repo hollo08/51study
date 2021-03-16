@@ -1,4 +1,4 @@
-C51 COMPILER V9.00   LESSION4                                                              03/08/2021 17:06:46 PAGE 1   
+C51 COMPILER V9.00   LESSION4                                                              03/16/2021 14:44:37 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE LESSION4
@@ -24,137 +24,188 @@ line level    source
   14          
   15          sbit beep = P2^3;
   16          
-  17          uint tt, t2, num, qian, bai, shi, ge, beep_flag;
-  18          uint temp;
-  19          void delay(unsigned int xms);
-  20          void getNum(uint num);
+  17          sbit btn1 = P3^4;
+  18          sbit btn2 = P3^5;
+  19          sbit btn3 = P3^6;
+  20          sbit btn4 = P3^7;
   21          
-  22          
-  23          void init()
-  24          {
-  25   1          temp = 0xfe;
-  26   1          P1 = temp;
-  27   1          TMOD = 0x11;
-  28   1          TH0 = (65535-50000)/256;
-  29   1          TL0 = (65535-50000)%256;
-  30   1          TH1 = (65535-50000)/256;
-  31   1          TL1 = (65535-50000)%256;
-  32   1          EA = 1;     //开启中断
-  33   1          ET0 = 1;    //定时器T0中断, 用于数码管
-  34   1          TR0 = 1;    //定时器T0启动 
-  35   1          ET1 = 1;    //定时器T1中断, 用于跑马灯
-  36   1          TR1 = 1;    //定时器T1启动
-  37   1      }
-  38          
-  39          void timer1() interrupt 1
-  40          {
-  41   1          TH0 = (65535-50000)/256;
-  42   1          TL0 = (65535-50000)%256;
-  43   1          tt++;
-  44   1          if(tt==2)
-  45   1          {
-  46   2              tt = 0;
-  47   2              num++;
-  48   2              if(num==10000)
-  49   2                  num = 0;
-  50   2              if(num==99)//等于999时，定时器停止
-  51   2              {
-  52   3                  //TR0 = 0;
-  53   3                  beep_flag = 1;
-  54   3                  //TR1 = 0;
-C51 COMPILER V9.00   LESSION4                                                              03/08/2021 17:06:46 PAGE 2   
+  22          uint tt, t2, num, qian, bai, shi, ge, beep_flag;
+  23          uint temp;
+  24          uint btn1_flag, btn2_flag, btn3_flag, btn4_flag;
+  25          void delay(unsigned int xms);
+  26          void getNum(uint num);
+  27          
+  28          
+  29          void init()
+  30          {
+  31   1          temp = 0xfe;
+  32   1          P1 = temp;
+  33   1          TMOD = 0x11;
+  34   1          TH0 = (65535-50000)/256;
+  35   1          TL0 = (65535-50000)%256;
+  36   1          TH1 = (65535-50000)/256;
+  37   1          TL1 = (65535-50000)%256;
+  38   1          EA = 1;     //开启中断
+  39   1          ET0 = 1;    //定时器T0中断, 用于数码管
+  40   1          TR0 = 1;    //定时器T0启动 
+  41   1          ET1 = 1;    //定时器T1中断, 用于跑马灯
+  42   1          TR1 = 1;    //定时器T1启动
+  43   1      }
+  44          
+  45          void timer1() interrupt 1
+  46          {
+  47   1          TH0 = (65535-50000)/256;
+  48   1          TL0 = (65535-50000)%256;
+  49   1          tt++;
+  50   1          if(tt==2)
+  51   1          {
+  52   2              tt = 0;
+  53   2              /**
+  54   2              if(btn1_flag==1)
+C51 COMPILER V9.00   LESSION4                                                              03/16/2021 14:44:37 PAGE 2   
 
-  55   3              }
-  56   2              if(beep_flag==1 && num%20==0)
-  57   2              {
-  58   3                  //num = 1;
-  59   3                  beep = 0;
-  60   3              }
-  61   2              else
-  62   2              {
-  63   3                  beep = 1;
-  64   3              }
-  65   2              getNum(num);
-  66   2          }
-  67   1      }
-  68          
-  69          void led0() interrupt 3
-  70          {
-  71   1          TH1 = (65535-50000)/256;
-  72   1          TL1 = (65535-50000)%256;
-  73   1          t2++;
-  74   1          
-  75   1          if(t2==10)
-  76   1          {
-  77   2              t2=0;
-  78   2              temp = _crol_(P1, 1);
-  79   2              P1 = temp;
-  80   2          }
-  81   1      }
-  82          
-  83          void display(uint qian, uint bai, uint shi, uint ge)
-  84          {
-  85   1          dula = sz[qian];
-  86   1          wela1 = 1;
-  87   1          wela2 = 0;
-  88   1          wela3 = 0;
-  89   1          wela4 = 0;
-  90   1          delay(5);
-  91   1          dula = sz[bai];
-  92   1          wela1 = 0;
-  93   1          wela2 = 1;
-  94   1          wela3 = 0;
-  95   1          wela4 = 0;
-  96   1          delay(5);
-  97   1          dula = sz[shi];
-  98   1          wela1 = 0;
+  55   2              {
+  56   2                  return;
+  57   2              }
+  58   2              **/
+  59   2              num++;
+  60   2              if(num==10000)
+  61   2                  num = 0;
+  62   2              if(num==999)//等于999时，定时器停止
+  63   2              {
+  64   3                  //TR0 = 0;
+  65   3                  beep_flag = 1;
+  66   3                  //TR1 = 0;
+  67   3              }
+  68   2              if(beep_flag==1 && num%20==0)
+  69   2              {
+  70   3                  //num = 1;
+  71   3                  beep = 0;
+  72   3              }
+  73   2              else
+  74   2              {
+  75   3                  beep = 1;
+  76   3              }
+  77   2              getNum(num);
+  78   2          }
+  79   1      }
+  80          
+  81          void led0() interrupt 3
+  82          {
+  83   1          TH1 = (65535-50000)/256;
+  84   1          TL1 = (65535-50000)%256;
+  85   1          t2++;
+  86   1          
+  87   1          if(t2==10)
+  88   1          {
+  89   2              t2=0;
+  90   2              temp = _crol_(P1, 1);
+  91   2              P1 = temp;
+  92   2          }
+  93   1      }
+  94          
+  95          void display(uint qian, uint bai, uint shi, uint ge)
+  96          {
+  97   1          dula = sz[qian];
+  98   1          wela1 = 1;
   99   1          wela2 = 0;
- 100   1          wela3 = 1;
+ 100   1          wela3 = 0;
  101   1          wela4 = 0;
  102   1          delay(5);
- 103   1          dula = sz[ge];
+ 103   1          dula = sz[bai];
  104   1          wela1 = 0;
- 105   1          wela2 = 0;
+ 105   1          wela2 = 1;
  106   1          wela3 = 0;
- 107   1          wela4 = 1;
+ 107   1          wela4 = 0;
  108   1          delay(5);
- 109   1      }
- 110          
- 111          void delay(unsigned int xms)                            
- 112          {
- 113   1              unsigned int i,j;
- 114   1              for(i=xms;i>0;i--)                    //i=xms即延时约xms毫秒
- 115   1                      for(j=112;j>0;j--);
- 116   1      }
-C51 COMPILER V9.00   LESSION4                                                              03/08/2021 17:06:46 PAGE 3   
+ 109   1          dula = sz[shi];
+ 110   1          wela1 = 0;
+ 111   1          wela2 = 0;
+ 112   1          wela3 = 1;
+ 113   1          wela4 = 0;
+ 114   1          delay(5);
+ 115   1          dula = sz[ge];
+ 116   1          wela1 = 0;
+C51 COMPILER V9.00   LESSION4                                                              03/16/2021 14:44:37 PAGE 3   
 
- 117          
- 118          void getNum(uint num)
- 119          {
- 120   1          qian = num/1000;
- 121   1          bai = num/100%10;
- 122   1          shi = num/10%10;
- 123   1          ge = num%10;
- 124   1      }
- 125          
- 126          
- 127          
- 128          void main()
- 129          {
- 130   1          init();
- 131   1          while(1)
- 132   1          {
- 133   2              display(qian, bai, shi, ge);
- 134   2          }
- 135   1      }
+ 117   1          wela2 = 0;
+ 118   1          wela3 = 0;
+ 119   1          wela4 = 1;
+ 120   1          delay(5);
+ 121   1      }
+ 122          
+ 123          void delay(unsigned int xms)                            
+ 124          {
+ 125   1              unsigned int i,j;
+ 126   1              for(i=xms;i>0;i--)                    //i=xms即延时约xms毫秒
+ 127   1                      for(j=110;j>0;j--);
+ 128   1      }
+ 129          
+ 130          void getNum(uint num)
+ 131          {
+ 132   1          qian = num/1000;
+ 133   1          bai = num/100%10;
+ 134   1          shi = num/10%10;
+ 135   1          ge = num%10;
+ 136   1      }
+ 137          
+ 138          
+ 139          
+ 140          void main()
+ 141          {
+ 142   1          init();
+ 143   1          
+ 144   1          while(1)
+ 145   1          {
+ 146   2              display(qian, bai, shi, ge);
+ 147   2                 
+ 148   2              if(btn1==0)
+ 149   2              {
+ 150   3                 delay(10);            //消抖
+ 151   3                 if(btn1==0)
+ 152   3                 {
+ 153   4                      TR0 = 0;
+ 154   4                      //while(!btn1)
+ 155   4                      //    display(qian, bai, shi, ge);
+ 156   4                      
+ 157   4                      btn1_flag = 1;
+ 158   4                      //TR0 = 1;
+ 159   4                 }
+ 160   3                 
+ 161   3              }
+ 162   2              if(btn2==0)
+ 163   2              {
+ 164   3                  delay(10);
+ 165   3                  if(btn2==0)
+ 166   3                  {
+ 167   4                      //while(!btn1)
+ 168   4                      //    display(qian, bai, shi, ge);
+ 169   4                      btn1_flag = 0;
+ 170   4                      TR0 = 1;
+ 171   4                  }
+ 172   3              }
+ 173   2              if(btn3==0)
+ 174   2              {
+ 175   3                  delay(10);
+ 176   3                  if(btn3==0)
+ 177   3                  {
+ 178   4                      TR0 = 0;
+C51 COMPILER V9.00   LESSION4                                                              03/16/2021 14:44:37 PAGE 4   
+
+ 179   4                      num = 0;
+ 180   4                      TR0 = 1;
+ 181   4                  }
+ 182   3              }
+ 183   2          }
+ 184   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    463    ----
+   CODE SIZE        =    529    ----
    CONSTANT SIZE    =     17    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     18       8
+   DATA SIZE        =     26       8
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

@@ -14,8 +14,14 @@ sbit wela4 = P2^7;
 
 sbit beep = P2^3;
 
+sbit btn1 = P3^4;
+sbit btn2 = P3^5;
+sbit btn3 = P3^6;
+sbit btn4 = P3^7;
+
 uint tt, t2, num, qian, bai, shi, ge, beep_flag;
 uint temp;
+uint btn1_flag, btn2_flag, btn3_flag, btn4_flag;
 void delay(unsigned int xms);
 void getNum(uint num);
 
@@ -44,10 +50,16 @@ void timer1() interrupt 1
     if(tt==2)
     {
         tt = 0;
+        /**
+        if(btn1_flag==1)
+        {
+            return;
+        }
+        **/
         num++;
         if(num==10000)
             num = 0;
-        if(num==99)//等于999时，定时器停止
+        if(num==999)//等于999时，定时器停止
         {
             //TR0 = 0;
             beep_flag = 1;
@@ -112,7 +124,7 @@ void delay(unsigned int xms)
 {
 	unsigned int i,j;
 	for(i=xms;i>0;i--)		      //i=xms即延时约xms毫秒
-		for(j=112;j>0;j--);
+		for(j=110;j>0;j--);
 }
 
 void getNum(uint num)
@@ -128,8 +140,45 @@ void getNum(uint num)
 void main()
 {
     init();
+    
     while(1)
     {
         display(qian, bai, shi, ge);
+           
+        if(btn1==0)
+        {
+           delay(10);		 //消抖
+           if(btn1==0)
+           {
+                TR0 = 0;
+                //while(!btn1)
+                //    display(qian, bai, shi, ge);
+                
+                btn1_flag = 1;
+                //TR0 = 1;
+           }
+           
+        }
+        if(btn2==0)
+        {
+            delay(10);
+            if(btn2==0)
+            {
+                //while(!btn1)
+                //    display(qian, bai, shi, ge);
+                btn1_flag = 0;
+                TR0 = 1;
+            }
+        }
+        if(btn3==0)
+        {
+            delay(10);
+            if(btn3==0)
+            {
+                TR0 = 0;
+                num = 0;
+                TR0 = 1;
+            }
+        }
     }
 }
