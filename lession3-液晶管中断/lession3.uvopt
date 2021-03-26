@@ -172,10 +172,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>27</ColumnNumber>
+      <ColumnNumber>7</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>17</TopLine>
+      <CurrentLine>19</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\lession3.c</PathWithFileName>
       <FilenameWithoutPath>lession3.c</FilenameWithoutPath>
@@ -1527,9 +1527,9 @@
       <Documents>
         <Doc>
           <Name>.\lession3.c</Name>
-          <ColumnNumber>27</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <ColumnNumber>7</ColumnNumber>
+          <TopLine>17</TopLine>
+          <CurrentLine>19</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
