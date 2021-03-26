@@ -3,7 +3,13 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-D:\51\51study\lession4\lession4.uvproj
-Project File Date:  03/19/2021
+C:\stm32\51study\lession4-∂‡÷–∂Œ\lession4.uvproj
+Project File Date:  03/20/2021
 
 <h2>Output:</h2>
+Build target 'Target 1'
+compiling lession4.c...
+linking...
+Program Size: data=43.0 xdata=0 code=658
+creating hex file from "lession4"...
+"lession4" - 0 Error(s), 0 Warning(s).
