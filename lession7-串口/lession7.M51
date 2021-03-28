@@ -1,0 +1,289 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/28/2021  21:18:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V4\C51\BIN\BL51.EXE main.obj TO lession7 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL_V4\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V4\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  lession7 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?_LCD_WRITE_STRING?MAIN
+            DATA    0009H     0001H     UNIT         ?DT?MAIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0020H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     0098H     UNIT         ?PR?SERIAL?MAIN
+            CODE    0898H     0035H     UNIT         ?PR?MAIN?MAIN
+            CODE    08CDH     002DH     UNIT         ?PR?_DELAY?MAIN
+            CODE    08FAH     0026H     UNIT         ?PR?_LCD_WRITE_STRING?MAIN
+            CODE    0920H     0021H     UNIT         ?PR?LCD_INIT?MAIN
+            CODE    0941H     0019H     UNIT         ?C?LIB_CODE
+            CODE    095AH     0016H     UNIT         ?PR?_LCD_WRITE_CHAR?MAIN
+            CODE    0970H     000CH     UNIT         ?PR?LCD_CLEAR?MAIN
+            CODE    097CH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0988H     0008H     UNIT         ?PR?_LCD_WRITE_COM?MAIN
+            CODE    0990H     0008H     UNIT         ?PR?_LCD_WRITE_DATA?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   lession7 (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?SERIAL?MAIN
+  +--> ?PR?_LCD_WRITE_CHAR?MAIN
+
+?PR?_LCD_WRITE_CHAR?MAIN
+  +--> ?PR?_LCD_WRITE_COM?MAIN
+  +--> ?PR?_LCD_WRITE_DATA?MAIN
+
+?PR?_LCD_WRITE_COM?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2021  21:18:42  PAGE 2
+
+
+  +--> ?PR?_DELAY?MAIN
+
+?PR?_LCD_WRITE_DATA?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?LCD_INIT?MAIN
+  +--> ?PR?LCD_CLEAR?MAIN
+  +--> ?PR?_LCD_WRITE_CHAR?MAIN
+
+?PR?LCD_INIT?MAIN
+  +--> ?PR?_LCD_WRITE_COM?MAIN
+
+?PR?LCD_CLEAR?MAIN
+  +--> ?PR?_LCD_WRITE_COM?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  lession7 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0800H         PUBLIC        serial
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:08DCH         PUBLIC        _delay
+  B:00A0H.5       PUBLIC        EN
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  C:08FAH         PUBLIC        _LCD_Write_String
+  C:0970H         PUBLIC        LCD_Clear
+  C:0990H         PUBLIC        _LCD_Write_Data
+  C:095AH         PUBLIC        _LCD_Write_Char
+  B:0090H.0       PUBLIC        RS
+  C:0898H         PUBLIC        main
+  B:00A0H.6       PUBLIC        dula
+  B:0090H.1       PUBLIC        RW
+  B:00A0H.7       PUBLIC        wela
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2021  21:18:42  PAGE 3
+
+
+  D:0009H         PUBLIC        buf
+  C:0988H         PUBLIC        _LCD_Write_Com
+  C:0920H         PUBLIC        LCD_Init
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          L?0047
+  -------         ENDPROC       L?0047
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        z
+  -------         DO            
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  -------         ENDDO         
+  C:08DCH         LINE#         25
+  C:08DCH         LINE#         26
+  C:08DCH         LINE#         28
+  C:08E5H         LINE#         29
+  C:08F9H         LINE#         30
+  -------         ENDPROC       _DELAY
+  -------         PROC          _LCD_WRITE_COM
+  D:0007H         SYMBOL        com
+  C:0988H         LINE#         35
+  C:0988H         LINE#         36
+  C:0988H         LINE#         37
+  C:098AH         LINE#         38
+  C:098AH         LINE#         39
+  C:098AH         LINE#         40
+  C:098AH         LINE#         41
+  C:098DH         LINE#         42
+  C:098FH         LINE#         43
+  -------         ENDPROC       _LCD_WRITE_COM
+  -------         PROC          _LCD_WRITE_DATA
+  D:0007H         SYMBOL        Data
+  C:0990H         LINE#         47
+  C:0990H         LINE#         48
+  C:0990H         LINE#         49
+  C:0992H         LINE#         50
+  C:0992H         LINE#         51
+  C:0992H         LINE#         52
+  C:0992H         LINE#         53
+  C:0995H         LINE#         54
+  C:0997H         LINE#         55
+  -------         ENDPROC       _LCD_WRITE_DATA
+  -------         PROC          LCD_CLEAR
+  C:0970H         LINE#         60
+  C:0970H         LINE#         61
+  C:0970H         LINE#         62
+  C:0975H         LINE#         63
+  -------         ENDPROC       LCD_CLEAR
+  -------         PROC          _LCD_WRITE_STRING
+  D:0008H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  D:0001H         SYMBOL        s
+  C:08FAH         LINE#         69
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2021  21:18:42  PAGE 4
+
+
+  C:08FCH         LINE#         70
+  C:08FCH         LINE#         71
+  C:08FFH         LINE#         72
+  C:08FFH         LINE#         73
+  C:0903H         LINE#         74
+  C:0905H         LINE#         76
+  C:0905H         LINE#         77
+  C:090DH         LINE#         78
+  C:090DH         LINE#         79
+  C:0913H         LINE#         80
+  C:0913H         LINE#         81
+  C:0916H         LINE#         82
+  C:091DH         LINE#         83
+  C:091FH         LINE#         84
+  -------         ENDPROC       _LCD_WRITE_STRING
+  -------         PROC          _LCD_WRITE_CHAR
+  D:0006H         SYMBOL        x
+  D:0005H         SYMBOL        y
+  D:0003H         SYMBOL        Data
+  C:095AH         LINE#         88
+  C:095CH         LINE#         89
+  C:095CH         LINE#         90
+  C:095FH         LINE#         91
+  C:095FH         LINE#         92
+  C:0962H         LINE#         93
+  C:0964H         LINE#         95
+  C:0964H         LINE#         96
+  C:096BH         LINE#         97
+  C:096BH         LINE#         98
+  -------         ENDPROC       _LCD_WRITE_CHAR
+  -------         PROC          LCD_INIT
+  C:0920H         LINE#         103
+  C:0920H         LINE#         104
+  C:0920H         LINE#         105
+  C:0922H         LINE#         106
+  C:0924H         LINE#         107
+  C:0926H         LINE#         108
+  C:0928H         LINE#         109
+  C:092DH         LINE#         110
+  C:0932H         LINE#         111
+  C:0937H         LINE#         112
+  C:093CH         LINE#         113
+  -------         ENDPROC       LCD_INIT
+  -------         PROC          MAIN
+  C:0898H         LINE#         117
+  C:0898H         LINE#         118
+  C:0898H         LINE#         119
+  C:089BH         LINE#         120
+  C:089EH         LINE#         121
+  C:08A7H         LINE#         122
+  C:08B0H         LINE#         125
+  C:08B3H         LINE#         126
+  C:08B6H         LINE#         127
+  C:08B9H         LINE#         128
+  C:08BCH         LINE#         129
+  C:08BFH         LINE#         130
+  C:08C1H         LINE#         131
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/28/2021  21:18:42  PAGE 5
+
+
+  C:08C3H         LINE#         132
+  C:08C6H         LINE#         133
+  C:08C9H         LINE#         134
+  C:08CBH         LINE#         135
+  -------         ENDPROC       MAIN
+  -------         PROC          SERIAL
+  C:0800H         LINE#         143
+  C:0817H         LINE#         145
+  C:0819H         LINE#         146
+  C:081BH         LINE#         147
+  C:081EH         LINE#         148
+  C:084DH         LINE#         149
+  C:084DH         LINE#         150
+  C:084DH         LINE#         151
+  C:0850H         LINE#         152
+  C:0850H         LINE#         153
+  C:0852H         LINE#         154
+  C:0852H         LINE#         155
+  C:0855H         LINE#         156
+  C:0857H         LINE#         157
+  C:085CH         LINE#         158
+  C:0861H         LINE#         159
+  C:0866H         LINE#         160
+  C:086BH         LINE#         161
+  C:0870H         LINE#         162
+  C:0875H         LINE#         163
+  C:0881H         LINE#         164
+  C:0881H         LINE#         165
+  C:0883H         LINE#         166
+  -------         ENDPROC       SERIAL
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?CLDPTR
+  C:0941H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_WRITE_STRING?MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0176H BYTE (18%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=414
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
