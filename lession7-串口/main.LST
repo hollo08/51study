@@ -1,4 +1,4 @@
-C51 COMPILER V9.00   MAIN                                                                  03/28/2021 21:18:42 PAGE 1   
+C51 COMPILER V9.00   MAIN                                                                  03/31/2021 15:20:25 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   53   1           delay(5);
   54   1           EN_CLR;
   55   1       }
-C51 COMPILER V9.00   MAIN                                                                  03/28/2021 21:18:42 PAGE 2   
+C51 COMPILER V9.00   MAIN                                                                  03/31/2021 15:20:25 PAGE 2   
 
   56          
   57          /*------------------------------------------------
@@ -114,8 +114,8 @@ line level    source
  103           void LCD_Init(void) 
  104           {
  105   1         RW_CLR;
- 106   1         dula=0;
- 107   1         wela=0;
+ 106   1         //dula=0;
+ 107   1         //wela=0;
  108   1         EN_CLR;
  109   1         LCD_Write_Com(0x38);    /*显示模式设置*/ 
  110   1         LCD_Write_Com(0x0e);    /*显示关闭*/ 
@@ -124,69 +124,83 @@ line level    source
  113   1         LCD_Write_Com(0x80);    /*显示开及光标设置*/
  114   1      }
  115          
- 116          uchar buf;
- 117          void main()
-C51 COMPILER V9.00   MAIN                                                                  03/28/2021 21:18:42 PAGE 3   
+ 116          uchar buf, count;
+ 117          bit   flag=0;
+C51 COMPILER V9.00   MAIN                                                                  03/31/2021 15:20:25 PAGE 3   
 
- 118          {
- 119   1              LCD_Init(); 
- 120   1              LCD_Clear();//清屏
- 121   1              LCD_Write_Char(1, 0, 'o');
- 122   1              LCD_Write_Char(8,0,'k');
- 123   1      //      LCD_Write_String(1,1,"hello world");
- 124   1      
- 125   1              P0 = 0xff;
- 126   1          P2 = 0xff;  
- 127   1              SCON=0x50;           //设定串口工作方式
- 128   1          PCON=0x00;           //波特率不倍增 
- 129   1          TMOD=0x20;           //定时器1工作于8位自动重载模式, 用于产生波特率
- 130   1          EA=1;
- 131   1          ES = 1;              //允许串口中断
- 132   1          TL1=0xfd;
- 133   1          TH1=0xfd;             //波特率9600
- 134   1          TR1=1;
- 135   1              while(1);
- 136   1      }
- 137          
- 138          /*********************************************************
- 139          
- 140            串行中断服务函数
- 141          
- 142          *********************************************************/
- 143          void  serial() interrupt 4 
- 144          {
- 145   1         ES = 0;                //关闭串行中断
- 146   1         RI = 0;                //清除串行接受标志位
- 147   1         buf = SBUF;            //从串口缓冲区取得数据
- 148   1         switch(buf)
- 149   1         {
- 150   2            case 0x31:  
- 151   2                      P1=0xfe; 
- 152   2                      LCD_Write_Char(9, 0, 'x');
- 153   2                      break;  //接受到1，第一个LED亮         
- 154   2            case 0x32:  
- 155   2                      P1=0xfd;
- 156   2                      break;  //接受到2，第二个LED亮        
- 157   2            case 0x33:  P1=0xfb;LCD_Write_Char(9, 0, 'x');break;  //接受到3，第三个LED亮        
- 158   2            case 0x34:  P1=0xf7;LCD_Write_Char(9, 0, 'x');break;  //接受到4，第四个LED亮       
- 159   2            case 0x35:  P1=0xef;LCD_Write_Char(9, 0, 'x');break;  //接受到5，第五个LED亮            
- 160   2            case 0x36:  P1=0xdf;LCD_Write_Char(9, 0, 'x');break;  //接受到5，第六个LED亮                   
- 161   2            case 0x37:  P1=0xbf;LCD_Write_Char(9, 0, 'x');break;  //接受到5，第七个LED亮
- 162   2                case 0x38:  P1=0x7f;LCD_Write_Char(9, 0, 'x');break;  //接受到5，第八个LED亮
- 163   2                default:    P1=0xff;LCD_Write_Char(9, 0, 'x');break;  //接受到其它数据，蜂鸣器响         
- 164   2         }
- 165   1         ES = 1;    //允许串口中断
- 166   1      }
+ 118          uchar data  RXDdata[] = {0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,
+ 119                                    0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20 };
+ 120          void main()
+ 121          {
+ 122   1       
+ 123   1              SCON=0x50;           //设定串口工作方式
+ 124   1          PCON=0x00;           //波特率不倍增 
+ 125   1          TMOD=0x20;           //定时器1工作于8位自动重载模式, 用于产生波特率
+ 126   1          EA=1;
+ 127   1          ES = 1;              //允许串口中断
+ 128   1          TL1=0xfd;
+ 129   1          TH1=0xfd;             //波特率9600
+ 130   1          TR1=1;
+ 131   1      
+ 132   1          
+ 133   1              LCD_Init(); 
+ 134   1              LCD_Clear();//清屏
+ 135   1              LCD_Write_Char(1, 0, 'o');
+ 136   1              LCD_Write_Char(2, 0, 'k');
+ 137   1              LCD_Write_String(1,1,"hello world");
+ 138   1      
+ 139   1      
+ 140   1              while(1)
+ 141   1          {
+ 142   2               if(flag)
+ 143   2               {
+ 144   3                   delay(10);
+ 145   3                   //LCD_Write_Char(9, 0, buf);
+ 146   3                   //LCD_Write_Char(10, 0, 0x37);
+ 147   3                   LCD_Write_String(3, 0, RXDdata);
+ 148   3                   flag = 0;
+ 149   3               }
+ 150   2               
+ 151   2          }
+ 152   1      }
+ 153          
+ 154          /*********************************************************
+ 155          
+ 156            串行中断服务函数
+ 157          
+ 158          *********************************************************/
+ 159          void  serial() interrupt 4 
+ 160          {
+ 161   1         buf = SBUF;            //从串口缓冲区取得数据
+ 162   1         ES = 0;                //关闭串行中断
+ 163   1         RI = 0;                //清除串行接受标志位
+ 164   1         flag = 1;
+ 165   1         SBUF = buf;
+ 166   1         //while(!TI);
+ 167   1         TI = 0;
+ 168   1         ES = 1;    //允许串口中断
+ 169   1         
+ 170   1         //P1=0x00;
+ 171   1         if(count<16)
+ 172   1         {         
+ 173   2           RXDdata[count]=buf;
+ 174   2           count++;
+ 175   2               if(count==16)
+ 176   2                      count=0;
+ 177   2         }
+ 178   1      }
+
+C51 COMPILER V9.00   MAIN                                                                  03/31/2021 15:20:25 PAGE 4   
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    371    ----
-   CONSTANT SIZE    =   ----    ----
+   CODE SIZE        =    303    ----
+   CONSTANT SIZE    =     12    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      1       1
+   DATA SIZE        =     18       1
    IDATA SIZE       =   ----    ----
-   BIT SIZE         =   ----    ----
+   BIT SIZE         =      1    ----
 END OF MODULE INFORMATION.
 
 

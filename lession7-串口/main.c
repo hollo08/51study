@@ -103,8 +103,8 @@ void delay(uint z)
  void LCD_Init(void) 
  {
    RW_CLR;
-   dula=0;
-   wela=0;
+   //dula=0;
+   //wela=0;
    EN_CLR;
    LCD_Write_Com(0x38);    /*显示模式设置*/ 
    LCD_Write_Com(0x0e);    /*显示关闭*/ 
@@ -113,14 +113,12 @@ void delay(uint z)
    LCD_Write_Com(0x80);    /*显示开及光标设置*/
 }
 
-uchar buf;
+uchar buf, count;
+bit   flag=0;
+uchar data  RXDdata[] = {0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,
+                          0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20 };
 void main()
 {
-	LCD_Init(); 
-	LCD_Clear();//清屏
-	LCD_Write_Char(1, 0, 'o');
-	LCD_Write_Char(8,0,'k');
-//	LCD_Write_String(1,1,"hello world");
  
 	SCON=0x50;           //设定串口工作方式
     PCON=0x00;           //波特率不倍增	
@@ -130,7 +128,27 @@ void main()
     TL1=0xfd;
     TH1=0xfd;             //波特率9600
     TR1=1;
-	while(1);
+
+    
+	LCD_Init(); 
+	LCD_Clear();//清屏
+	LCD_Write_Char(1, 0, 'o');
+	LCD_Write_Char(2, 0, 'k');
+	LCD_Write_String(1,1,"hello world");
+
+
+	while(1)
+    {
+         if(flag)
+         {
+             delay(10);
+             //LCD_Write_Char(9, 0, buf);
+             //LCD_Write_Char(10, 0, 0x37);
+             LCD_Write_String(3, 0, RXDdata);
+             flag = 0;
+         }
+         
+    }
 }
 
 /*********************************************************
@@ -140,25 +158,21 @@ void main()
 *********************************************************/
 void  serial() interrupt 4 
 {
+   buf = SBUF;            //从串口缓冲区取得数据
    ES = 0;                //关闭串行中断
    RI = 0;                //清除串行接受标志位
-   buf = SBUF;            //从串口缓冲区取得数据
-   switch(buf)
-   {
-      case 0x31:  
-	  	P1=0xfe; 
-		LCD_Write_Char(9, 0, 'x');
-		break;  //接受到1，第一个LED亮         
-      case 0x32:  
-	  	P1=0xfd;
-		break;  //接受到2，第二个LED亮        
-      case 0x33:  P1=0xfb;LCD_Write_Char(9, 0, 'x');break;  //接受到3，第三个LED亮        
-      case 0x34:  P1=0xf7;LCD_Write_Char(9, 0, 'x');break;  //接受到4，第四个LED亮       
-      case 0x35:  P1=0xef;LCD_Write_Char(9, 0, 'x');break;  //接受到5，第五个LED亮            
-      case 0x36:  P1=0xdf;LCD_Write_Char(9, 0, 'x');break;  //接受到5，第六个LED亮                   
-      case 0x37:  P1=0xbf;LCD_Write_Char(9, 0, 'x');break;  //接受到5，第七个LED亮
-	  case 0x38:  P1=0x7f;LCD_Write_Char(9, 0, 'x');break;  //接受到5，第八个LED亮
-	  default:    P1=0xff;LCD_Write_Char(9, 0, 'x');break;  //接受到其它数据，蜂鸣器响         
-   }
+   flag = 1;
+   SBUF = buf;
+   while(!TI);
+   TI = 0;
    ES = 1;    //允许串口中断
+   
+   //P1=0x00;
+   if(count<16)
+   {         
+     RXDdata[count]=buf;
+     count++;
+	 if(count==16)
+	 	count=0;
+   }
 }
